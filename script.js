@@ -117,6 +117,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 30000); // Update every 30 seconds
 });
 
+// Contract Address Copy Functionality
+function copyAddress() {
+    const addressElement = document.getElementById('contractAddress');
+    const copyBtn = document.getElementById('copyBtn');
+    const addressText = addressElement.textContent;
+    
+    // Don't copy if it's just placeholder text
+    if (addressText === 'COMING SOON') {
+        // Still show visual feedback for demo purposes
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        return;
+    }
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(addressText).then(() => {
+        // Show success state
+        copyBtn.classList.add('copied');
+        
+        // Reset after 2 seconds
+        setTimeout(() => {
+            copyBtn.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = addressText;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+        
+        document.body.removeChild(textArea);
+    });
+}
+
 // Add some CSS for initial card states
 const initialStyles = `
     .mission-card,

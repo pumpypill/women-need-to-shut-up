@@ -4,15 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shut Her Up - Restoring Traditional Values</title>
+    <meta name="description" content="A satirical website exploring traditional values and the role of women in democracy. Purely for entertainment and social commentary purposes.">
+    <meta name="keywords" content="satire, social commentary, traditional values, democracy, political humor">
+    <meta name="author" content="Shut Her Up Organization">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shutherup.org/">
+    <meta property="og:title" content="Shut Her Up - Restoring Traditional Values">
+    <meta property="og:description" content="A satirical website exploring traditional values and democracy. For entertainment purposes only.">
+    <meta property="og:image" content="https://shutherup.org/mouth-tape-meta.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shutherup.org/">
+    <meta property="twitter:title" content="Shut Her Up - Restoring Traditional Values">
+    <meta property="twitter:description" content="A satirical website exploring traditional values and democracy. For entertainment purposes only.">
+    <meta property="twitter:image" content="https://shutherup.org/mouth-tape-meta.png">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Arial:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Contract Address Banner -->
+    <div class="ca-banner">
+        <div class="ca-banner-content">
+            <span class="ca-label">CA:</span>
+            <span class="ca-address" id="contractAddress">COMING SOON</span>
+            <button class="ca-copy-btn" id="copyBtn" onclick="copyAddress()" aria-label="Copy contract address to clipboard">
+                <span class="copy-text">COPY</span>
+                <span class="copy-success">COPIED!</span>
+            </button>
+        </div>
+    </div>
+
     <header class="main-header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <img src="shut-her-up.png" alt="Shut Her Up" style="height: 72px; width: auto;">
+                    <img src="shut-her-up.png" alt="Shut Her Up Logo" class="logo-image">
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
@@ -109,7 +140,7 @@
                 <h2>About Our Movement</h2>
                 <div class="about-flex-container">
                     <div class="about-image-container">
-                        <img src="mad.webp" alt="Mad Woman" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <img src="mad.webp" alt="Frustrated woman expressing her opinion" class="about-image" loading="lazy">
                     </div>
                     <div class="about-text-container">
                         <p class="about-text">
@@ -132,27 +163,27 @@
         <section id="research" class="facts-section">
             <div class="container">
                 <h2>Our Groundbreaking Research</h2>
-                <div style="max-width: 800px; margin: 0 auto; text-align: left; margin-bottom: 60px;">
-                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; color: white; opacity: 0.9;">
+                <div class="research-intro">
+                    <p class="research-intro-text">
                         Over the past 6 months, our team of highly qualified researchers have conducted extensive studies on the correlation between women speaking and societal problems.
                     </p>
                 </div>
                 
-                <h3 style="text-align: center; font-size: 2.2rem; margin-bottom: 40px;">Key Studies</h3>
+                <h3 class="research-subtitle">Key Studies</h3>
                 <div class="facts-grid">
                     <div class="fact-card">
                         <h3>The Great Silence Study (2025)</h3>
-                        <p style="font-style: italic; color: #ffd700; margin-bottom: 15px;">Dr. Chad Researcher, PhD*</p>
+                        <p class="researcher-name">Dr. Chad Researcher, PhD*</p>
                         <p>A comprehensive 3-week study of 12 marriages found that when women reduced their political commentary by 78%, household arguments decreased by 94%. Sample bias? What's that?</p>
                     </div>
                     <div class="fact-card">
                         <h3>Historical Democracy Analysis</h3>
-                        <p style="font-style: italic; color: #ffd700; margin-bottom: 15px;">Prof. Brad Statistics</p>
+                        <p class="researcher-name">Prof. Brad Statistics</p>
                         <p>Our analysis of historical data shows a clear correlation between women's suffrage and global warming, reality TV, and the decline of good barbershop quartets.</p>
                     </div>
                     <div class="fact-card">
                         <h3>The Quiet Wife Experiment</h3>
-                        <p style="font-style: italic; color: #ffd700; margin-bottom: 15px;">Dr. Karen Silence</p>
+                        <p class="researcher-name">Dr. Karen Silence</p>
                         <p>Karen studied herself for 2 days and concluded that when she stopped expressing political opinions, her husband was 67% happier and the plants grew better.</p>
                     </div>
                 </div>
@@ -160,14 +191,14 @@
         </section>
 
         <!-- Survey Results -->
-        <section style="padding: 100px 0; background: white;">
+        <section class="survey-results-section">
             <div class="container">
-                <h2 style="text-align: center; font-family: 'Georgia', serif; font-size: 2.8rem; margin-bottom: 60px; color: #1e3c72;">Survey Results</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="survey-results-title">Survey Results</h2>
+                <div class="survey-results-container">
                     <div class="survey-card">
                         <h3 class="survey-question">Question: "Do you think women should speak less about politics?"</h3>
                         <div class="survey-bar-container">
-                            <div class="survey-bar-fill" style="width: 73%;"></div>
+                            <div class="survey-bar-fill survey-bar-73"></div>
                             <span class="survey-percentage">73%</span>
                         </div>
                     </div>
@@ -175,7 +206,7 @@
                     <div class="survey-card">
                         <h3 class="survey-question">Question: "Has democracy gotten worse since 1920?"</h3>
                         <div class="survey-bar-container">
-                            <div class="survey-bar-fill" style="width: 89%;"></div>
+                            <div class="survey-bar-fill survey-bar-89"></div>
                             <span class="survey-percentage">89%</span>
                         </div>
                     </div>
@@ -183,7 +214,7 @@
                     <div class="survey-card">
                         <h3 class="survey-question">Question: "Should the 19th Amendment be repealed?"</h3>
                         <div class="survey-bar-container">
-                            <div class="survey-bar-fill" style="width: 67%;"></div>
+                            <div class="survey-bar-fill survey-bar-67"></div>
                             <span class="survey-percentage">67%</span>
                         </div>
                     </div>

@@ -1,4 +1,9 @@
 /* Reset and Base Styles */
+:root {
+    --banner-height: 44px;
+    --banner-height-mobile: 38px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +15,99 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    padding-top: var(--banner-height);
+}
+
+/* Contract Address Banner */
+.ca-banner {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 8px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1002;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.ca-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.ca-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.ca-address {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    min-width: 180px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.ca-copy-btn {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ca-copy-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.ca-copy-btn:active {
+    transform: translateY(0);
+}
+
+.copy-success {
+    display: none;
+    color: #4CAF50;
+    font-weight: 700;
+}
+
+.ca-copy-btn.copied .copy-text {
+    display: none;
+}
+
+.ca-copy-btn.copied .copy-success {
+    display: inline;
+}
+
+.ca-copy-btn.copied {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: rgba(76, 175, 80, 0.6);
 }
 
 .container {
@@ -22,21 +120,21 @@ body {
 .main-header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
-    position: fixed;
-    top: 0;
+    position: sticky;
+    top: var(--banner-height);
     width: 100%;
-    z-index: 1000;
+    z-index: 1001;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 8px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 80px;
+    min-height: 75px;
 }
 
 .logo h1 {
@@ -79,8 +177,9 @@ body {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('mouth-tape-meta.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: white;
-    padding: 180px 0 120px;
+    padding: 120px 0 120px;
     text-align: center;
     min-height: 70vh;
     display: flex;
@@ -417,9 +516,39 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Banner mobile responsiveness */
+    .ca-banner {
+        padding: 6px 0;
+    }
+    
+    .ca-banner-content {
+        gap: 8px;
+        padding: 0 15px;
+    }
+    
+    .ca-label {
+        font-size: 0.75rem;
+    }
+    
+    .ca-address {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        min-width: 140px;
+    }
+    
+    .ca-copy-btn {
+        padding: 4px 12px;
+        font-size: 0.75rem;
+    }
+    
+    /* Adjust header top position for mobile */
+    .main-header {
+        top: var(--banner-height-mobile);
+    }
+    
     /* Logo responsive sizing */
     .logo img {
-        height: 50px !important;
+        height: 60px !important;
     }
     
     /* About section responsive layout */
@@ -489,7 +618,7 @@ body {
     }
     
     .hero {
-        padding: 150px 0 80px;
+        padding: 100px 0 80px;
     }
     
     .hero-content h1 {
@@ -517,12 +646,13 @@ body {
 @media (max-width: 480px) {
     /* Logo extra small screens */
     .logo img {
-        height: 40px !important;
+        height: 50px !important;
     }
     
     /* Hero section adjustments */
     .hero {
         padding: 120px 0 60px !important;
+        background-attachment: scroll; /* Fixed attachment causes issues on mobile */
     }
     
     .hero-content h1 {
@@ -642,7 +772,67 @@ html {
     color: #666;
 }
 
+/* Logo image styling */
+.logo-image {
+    height: 72px;
+    width: auto;
+}
+
+/* About section image */
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Research section styles */
+.research-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.research-intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: white;
+    opacity: 0.9;
+}
+
+.research-subtitle {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.researcher-name {
+    font-style: italic;
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
 /* Survey Results */
+.survey-results-section {
+    padding: 100px 0;
+    background: white;
+}
+
+.survey-results-title {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    color: #1e3c72;
+}
+
+.survey-results-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .survey-card {
     background: #f8f9fa;
     padding: 40px;
@@ -668,6 +858,10 @@ html {
     height: 100%;
     border-radius: 10px;
 }
+
+.survey-bar-73 { width: 73%; }
+.survey-bar-89 { width: 89%; }
+.survey-bar-67 { width: 67%; }
 
 .survey-percentage {
     position: absolute;
