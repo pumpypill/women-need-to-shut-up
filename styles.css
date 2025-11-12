@@ -417,19 +417,62 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Logo responsive sizing */
+    .logo img {
+        height: 50px !important;
+    }
+    
     /* About section responsive layout */
+    .about-flex-container {
+        flex-direction: column !important;
+        gap: 30px !important;
+        padding: 0 20px;
+    }
+    
+    .about-image-container {
+        order: 2;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .about-text-container {
+        order: 1;
+        text-align: center !important;
+    }
+    
     #about .container > div[style*="display: flex"] {
         flex-direction: column !important;
         gap: 30px !important;
+        padding: 0 20px;
     }
     
     #about .container > div[style*="display: flex"] > div:first-child {
         order: 2;
+        max-width: 300px;
+        margin: 0 auto;
     }
     
     #about .container > div[style*="display: flex"] > div:last-child {
         order: 1;
         text-align: center !important;
+    }
+    
+    /* Survey results responsive */
+    .survey-card {
+        padding: 20px !important;
+    }
+    
+    /* General text sizing */
+    [style*="font-size: 1.2rem"] {
+        font-size: 1rem !important;
+    }
+    
+    [style*="font-size: 2.2rem"] {
+        font-size: 1.8rem !important;
+    }
+    
+    [style*="font-size: 2.8rem"] {
+        font-size: 2rem !important;
     }
     
     .nav-container {
@@ -472,29 +515,167 @@ body {
 }
 
 @media (max-width: 480px) {
+    /* Logo extra small screens */
+    .logo img {
+        height: 40px !important;
+    }
+    
+    /* Hero section adjustments */
+    .hero {
+        padding: 120px 0 60px !important;
+    }
+    
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+        margin-bottom: 15px;
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem !important;
+        margin-bottom: 30px;
     }
     
+    /* Button improvements */
     .btn {
-        padding: 12px 25px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        margin: 5px 0;
+    }
+    
+    .btn-large {
+        padding: 15px 25px;
         font-size: 1rem;
     }
     
+    /* Card improvements */
     .mission-card,
     .fact-card,
-    .testimonial {
-        padding: 30px 20px;
+    .testimonial,
+    .survey-card {
+        padding: 20px 15px !important;
+        margin: 0 10px 20px 10px;
+    }
+    
+    /* About section mobile */
+    .about-text {
+        font-size: 1rem !important;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .about-image-container {
+        max-width: 250px !important;
+    }
+    
+    /* Container padding */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Section padding */
+    .mission-section,
+    .facts-section,
+    .testimonials {
+        padding: 60px 0 !important;
+    }
+    
+    .cta-section {
+        padding: 60px 0 !important;
+    }
+}
+
+/* Mobile viewport fix */
+@media (max-width: 768px) {
+    /* Force responsive behavior on stubborn inline styles */
+    section[style*="padding"] {
+        padding: 60px 0 !important;
+    }
+    
+    h2[style*="font-size"] {
+        font-size: 2rem !important;
+    }
+    
+    h3[style*="font-size"] {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Navigation improvements */
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-menu a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
 }
 
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* About Section Layout */
+.about-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-image-container {
+    flex: 1;
+}
+
+.about-text-container {
+    flex: 1.5;
+    text-align: left;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Survey Results */
+.survey-card {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.survey-question {
+    color: #1e3c72;
+    margin-bottom: 20px;
+}
+
+.survey-bar-container {
+    background: #1e3c72;
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.survey-bar-fill {
+    background: #ff6b6b;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.survey-percentage {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: white;
+    font-weight: bold;
+    line-height: 20px;
 }
 
 /* Animations */
